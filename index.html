@@ -1,270 +1,239 @@
-
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="jquery.js"></script>
+    <title>💊 Pharmacie d'ISSAGA BAH 💊</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        main {
-            position: relative;
-        }
-
         body {
             background-image: url("backg-removebg-previ.png");
             background-repeat: no-repeat;
-            background-position: cover;
-            background-size: 100%;
+            background-position: center;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+        }
 
+        main {
+            position: relative;
+            padding: 20px;
+        }
+
+        .index1, .index {
+            text-align: center;
+            color: white;
+            text-shadow: 1px 1px 3px #000;
+            margin-bottom: 20px;
         }
 
         .index1 {
-            box-shadow: 2px 5px grey;
-            position: absolute;
-            left: 395px;
-            padding: 6px;
-            top: 10px;
-            color: rgba(34, 128, 76, 0.495);
-            width: 54rem;
-            height: 4rem;
             font-size: 50px;
-            background-color: rgb(227, 223, 223);
         }
 
         .index {
-            position: absolute;
-            left: 395px;
-            top: 110px;
-            padding-bottom: 5px;
-            box-shadow: 1.5px 4px grey;
-            width: 55rem;
-            height: 3rem;
-            font-size: 50px;
-            text-align: center;
-            color: rgba(8, 174, 82, 0.975);
-            background-color: rgba(77, 121, 78, 0.205);
+            font-size: 35px;
         }
 
         .index2 {
-            position: absolute;
-            left: 400px;
-            top: 230px;
-            box-shadow: 1px 6px grey;
-            min-width: 55rem;
-            min-height: 30rem;
-            color: rgba(34, 128, 76, 0.495);
-            background-color: rgba(83, 126, 83, 0.205);
-        }
-
-        .saisie {
-            position: absolute;
-            left: 130px;
-            top: 10px;
+            background-color: rgba(255, 255, 255, 0.8);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-radius: 15px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         input {
-            margin: 20px;
-            border: rgb(184, 181, 181);
-            font-size: 20px;
-            text-align: center;
-            padding: 4px;
-            color: rgba(52, 123, 37);
-            width: 18rem;
-            height: 27px;
+            margin: 10px;
+            padding: 10px;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #999;
+            width: calc(50% - 30px);
         }
 
-        #produit,
-        #prix {
-            border: solid rgb(184, 181, 181);
+        input:focus {
+            outline: none;
+            border-color: green;
+            box-shadow: 0 0 5px green;
         }
 
         .index3 {
-            position: absolute;
-            left: 560px;
-            top: 320px;
-            width: 45rem;
-            height: 30rem;
+            text-align: center;
+            margin-bottom: 20px;
         }
 
         .but {
-            margin-left: 30px;
-            padding: 4px;
-            font-size: 15px;
-            width: 10rem;
-            height: 27px;
-            color: rgba(52, 123, 37);
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 10px;
+            border: none;
+            cursor: pointer;
+            color: white;
+            transition: 0.3s;
         }
 
+        #enregistrer { background-color: green; }
+        #enregistrer:hover { background-color: darkgreen; }
+
+        #afficher { background-color: #3498db; }
+        #afficher:hover { background-color: #217dbb; }
+
+        #effacer { background-color: red; }
+        #effacer:hover { background-color: darkred; }
+
         table {
-            position: absolute;
-            left: 500px;
-            background-color: rgb(52, 123, 37);
-            ;
-            top: 380px;
+            width: 90%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        th, td {
+            padding: 12px 15px;
+            text-align: center;
         }
 
         th {
-            color: rgb(218, 223, 223);
-            font-size: 25px;
+            background-color: #3498db;
+            color: white;
+            font-size: 18px;
         }
 
         td {
-            font-size: 20px;
-            color: rgb(227, 223, 223);
+            font-size: 16px;
         }
 
-        td,
-        th {
-            /* color:rgb(143, 109, 109); */
-            margin: 5px;
-            padding-left: 20px;
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        .foot1 {
+            font-weight: bold;
         }
     </style>
 </head>
 
 <body>
     <main>
-        <h2 class="index1">
-            <marquee> Pharmacie d'ISSAGA BAH</marquee>
-        </h2>
-        <h2 class="index"> La Gestion des Ventes </h2>
+        <h1 class="index1">💊 Pharmacie d'ISSAGA BAH 💊</h1>
+        <h2 class="index">📊 Gestion des Ventes 📊</h2>
+
         <div class="index2">
-            <article class="saisie">
-                <input type="text" id="produit" placeholder="Nom du Produit">
-                <input type="number" id="prix" placeholder=" le prix du Produit">
-            </article>
+            <input type="text" id="produit" placeholder="Nom du Produit 📝">
+            <input type="number" id="prix" placeholder="Prix du Produit 💰">
         </div>
+
         <div class="index3">
-            <button id="enregistrer" class="but"> Enregistrer</button>
-            <button id="afficher" class="but">Afficher</button>
-            <button id="effacer" class="but">Affacer Tout</button>
+            <button id="enregistrer" class="but">💾 Enregistrer</button>
+            <button id="afficher" class="but">👀 Afficher</button>
+            <button id="effacer" class="but">🗑️ Effacer Tout</button>
         </div>
+
         <table>
             <thead>
                 <tr>
-                    <th> Nom du Produit </th>
-                    <th> Prix </th>
-                    <th>Heures</th>
-                    <th>date</th>
-                    <th> Actions </th>
-                    <th></th>
+                    <th>Produit</th>
+                    <th>Prix</th>
+                    <th>Heure</th>
+                    <th>Date</th>
+                    <th>Supprimer</th>
+                    <th>Modifier</th>
                 </tr>
             </thead>
-            <tbody id="body">
-
-            </tbody>
+            <tbody id="body"></tbody>
             <tfoot>
                 <tr>
-                    <td class="foot1"></td>
+                    <td class="foot1">Somme Totale 💰 :</td>
                     <td id="foot2"></td>
                 </tr>
             </tfoot>
         </table>
     </main>
 
-
-
     <script>
         $(document).ready(function () {
-
             let edit = null;
+
+            function afficherTout() {
+                let tout = JSON.parse(localStorage.getItem("touts")) || [];
+                let td = "";
+                let somme = 0;
+                tout.forEach((a, index) => {
+                    somme += Number(a.prix);
+                    td += `<tr>
+                        <td>${a.nom} 🏷️</td>
+                        <td>${a.prix} FCFA 💵</td>
+                        <td>${a.heure} ⏰</td>
+                        <td>${a.date} 📅</td>
+                        <td><button class="supprimer but" data-index="${index}">❌</button></td>
+                        <td><button class="modifier but" data-index="${index}">✏️</button></td>
+                    </tr>`;
+                });
+                $("#body").html(td);
+                $("#foot2").text(somme + " FCFA 💰");
+            }
+
             $("#enregistrer").click(function () {
                 let now = new Date();
                 let date = now.toDateString();
                 let heure = now.toLocaleTimeString();
                 let nom = $("#produit").val();
                 let prix = $("#prix").val();
+
                 if (nom && prix) {
                     let tout = JSON.parse(localStorage.getItem("touts")) || [];
-                    if (edit === null)
-                        tout.push({
-                            nom: nom, prix: prix,
-                            date: date, heure: heure
-                        });
-                    else {
-                        tout[edit] = { nom: nom, prix: prix, date: date, heure: heure }
+                    if (edit === null) {
+                        tout.push({ nom: nom, prix: Number(prix), date: date, heure: heure });
+                        alert("✅ Produit ajouté avec succès !");
+                    } else {
+                        tout[edit] = { nom: nom, prix: Number(prix), date: date, heure: heure };
                         edit = null;
-                        $("#enregistrer").text("enregistrer");
+                        $("#enregistrer").text("💾 Enregistrer");
+                        alert("✏️ Produit mis à jour !");
                     }
                     localStorage.setItem("touts", JSON.stringify(tout));
                     $("#produit,#prix").val("");
-                    $("#afficher").click();
-
+                    afficherTout();
+                } else {
+                    alert("⚠️ Veuillez remplir tous les champs !");
                 }
-                else alert("veuiller remplir tous");
-            })
+            });
 
-
-            $("#afficher").click(function () {
-
-                let tout = JSON.parse(localStorage.getItem("touts")) || [];
-                let td = "";
-                let somme = 0;
-                tout.forEach((a, index) => {
-                    somme += Number(a.prix);
-                    td += ` <tr> <td>${a.nom}</td> <td>${a.prix}</td> <td> ${a.heure}</td>
-                        <td>${a.date}</td>
-                        <td><button class="supprimer" data-index="${index}">supprimer</button></td>
-                        <td><button class="modifier" data-index="${index}" >modifier<button></td>  </tr> `;
-
-                })
-                $("#body").html(td);
-                $(".foot1").text("la somme total  : ");
-                $("#foot2").text(somme + " FCFA ")
-            })
+            $("#afficher").click(afficherTout);
 
             $("#body").on("click", ".supprimer", function () {
-                let index = $(this).data("index");
-                let tout = JSON.parse(localStorage.getItem("touts")) || [];
-                tout.splice(index, 1);
-                localStorage.setItem("touts", JSON.stringify(tout));
-                $("#afficher").click();
-            })
+                if (confirm("❌ Voulez-vous vraiment supprimer ce produit ?")) {
+                    let index = $(this).data("index");
+                    let tout = JSON.parse(localStorage.getItem("touts")) || [];
+                    tout.splice(index, 1);
+                    localStorage.setItem("touts", JSON.stringify(tout));
+                    afficherTout();
+                }
+            });
+
             $("#body").on("click", ".modifier", function () {
                 edit = $(this).data("index");
                 let tout = JSON.parse(localStorage.getItem("touts")) || [];
                 let produit = tout[edit];
                 $("#produit").val(produit.nom);
                 $("#prix").val(produit.prix);
-
-                $("#enregistrer").text("mise a jour");
-            })
+                $("#enregistrer").text("✏️ Mise à jour");
+            });
 
             $("#effacer").click(function () {
-                $(this).css("background-color", "red");
-                localStorage.removeItem("touts");
-                $("#body").html("");
-            })
-
-            // partie de jquery css
-            $("#enregistrer").mouseenter(function () {
-                $(this).css("background-color", "green");
-                $(this).css("border", "solid, gray");
-                $(this).css("color", "gray");
-            })
-            $("#enregistrer").mouseleave(function () {
-                $(this).css("background-color", "white");
-                $(this).css("color", " rgba(52,123,37)");
-            })
-            $("#afficher").mouseenter(function () {
-                $(this).css("background-color", "lightgreen");
-                $(this).css("border", "solid, gray")
-            })
-            $("#afficher").mouseleave(function () {
-                $(this).css("background-color", "white");
-            })
-            $("#effacer").mouseenter(function () {
-                $(this).css("background-color", "red");
-                $(this).css("border", "solid, gray")
-            })
-            $("#effacer").mouseleave(function () {
-                $(this).css("background-color", "white");
-            })
-
-        })
+                if (confirm("🗑️ Voulez-vous vraiment tout effacer ?")) {
+                    localStorage.removeItem("touts");
+                    $("#body").html("");
+                    $("#foot2").text("");
+                }
+            });
+        });
     </script>
 </body>
-
 </html>
